@@ -20,7 +20,7 @@ jobs:
       with:
         repository: 'mdwajid095/kcctl'
         tag: ${{ github.event.release.tag_name }}
-        fileName: '*.zip'
+        fileName: 'v1.4-alpha.zip'
 
     - name: Download release asset
       uses: i3h/download-release-asset@v1
@@ -28,8 +28,7 @@ jobs:
         owner: mdwajid095
         repo: kcctl
         tag: ${{ github.event.release.tag_name }}
-        asset_name: '*.zip'
-        file: kcctl.zip
+        file: v1.4-alpha.zip
 
     - name: Print working directory
       run: pwd
