@@ -12,24 +12,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: list the file
+      run: |
+        echo "hello world Wajid!"
+        
     - name: Download specific file
       run: |
         wget https://github.com/mdwajid095/kcctl/archive/refs/tags/${{ github.event.release.tag_name }}.tar.gz
         tar -xzvf ${{ github.event.release.tag_name }}.tar.gz
         pwd
-        ls -a
-
-    - name: Download release asset
-      uses: i3h/download-release-asset@v1
-      with:
-        owner: mdwajid095
-        repo: kcctl
-        tag: ${{ github.event.release.tag_name }}
-        file: ${{ github.event.release.tag_name }}.tar.gz
-        path: .
-
-    - name: list the file
-      run: |
         ls -a
         
     - name: Log in to Docker Hub
