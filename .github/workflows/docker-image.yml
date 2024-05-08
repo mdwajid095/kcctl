@@ -21,7 +21,8 @@ jobs:
         owner: mdwajid095
         repo: kcctl
         tag: ${{ github.event.release.tag_name }}
-        file: v1.5-alpha.zip
+        file: ${{ github.event.release.tag_name }}.zip
+        path: .
 
     - name: Print working directory
       run: pwd
@@ -31,7 +32,7 @@ jobs:
 
 
     - name: Unzip release asset
-      run: unzip kcctl.zip -d kcctl
+      run: unzip ${{ github.event.release.tag_name }}.zip -d kcctl
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v1
