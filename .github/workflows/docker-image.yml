@@ -21,6 +21,9 @@ jobs:
         asset_name: '*.zip'
         file: kcctl.zip
 
+    - name: List files in current directory
+      run: ls -la
+
     - name: Unzip release asset
       run: unzip kcctl.zip -d kcctl
 
